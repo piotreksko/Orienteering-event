@@ -6,7 +6,7 @@ import Home from "@/components/Home/Home";
 import Chat from "@/components/Chat/Chat";
 import ChatWelcome from "@/components/Chat/ChatWelcome";
 import GettingHere from "@/components/GettingHere/GettingHere";
-import Bulletin from "@/components/Bulletin/Bulletin";
+import Invitation from "@/components/Invitation/Invitation";
 
 Vue.use(Router);
 
@@ -19,9 +19,9 @@ export default new Router({
       component: Home
     },
     {
-      path: "/bulletin",
-      name: "Bulletin",
-      component: Bulletin
+      path: "/invitation",
+      name: "Invitation",
+      component: Invitation
     },
     {
       path: "/entries",

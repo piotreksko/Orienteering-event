@@ -19,10 +19,10 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat to="/">Home</v-btn>
-        <v-btn flat to="/bulletin">Bulletin</v-btn>
+        <v-btn flat to="/invitation">Invitation</v-btn>
         <v-btn flat to="/entries">Entries</v-btn>
         <v-btn flat to="/add-entries">Add entries</v-btn>
-        <v-btn flat to="/direction">Getting here</v-btn>
+        <v-btn flat to="/getting-here">Getting here</v-btn>
         <v-btn flat to="/chat">Chat</v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -53,8 +53,8 @@ export default {
         },
         {
           icon: "bubble_chart",
-          title: "Bulletin",
-          path: "/bulletin"
+          title: "Invitation",
+          path: "/Invitation"
         },
         {
           icon: "list",
