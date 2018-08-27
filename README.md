@@ -16,11 +16,12 @@ Some additional features will be included such as chat or interactive map that w
 ## Partially finished
 
 - Homepage
+- Invitation
 - Entries - shows submitted entries - does not sort by club or category yet
 
 ## To be done
 
-- Bulletin - event details - place, fees, accomodation etc.
+- Populate entries
 - Getting here (blablacar module)
 
 
