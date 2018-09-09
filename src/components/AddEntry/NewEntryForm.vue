@@ -97,6 +97,9 @@ export default {
       fee: 0
     }
   }),
+  created() {
+    // this.generateFakeData();
+  },
   computed: {
     ...mapGetters({
       isDialogOpened: "isDialogOpened"
@@ -157,7 +160,6 @@ export default {
 
         return result;
       };
-
       if (this.editedRunner.category && this.editedRunner.stages.length) {
         this.editedRunner.fee = calculatedFee(
           this.editedRunner.category,
@@ -185,7 +187,7 @@ export default {
 
     save() {
       this.formHasErrors = false;
-      debugger;
+
       Object.keys(this.editedRunner).forEach(f => {
         if (!this.editedRunner[f]) this.formHasErrors = true;
         if (f !== "fee") {
@@ -200,6 +202,455 @@ export default {
         }
 
         this.$store.commit("setNewEntryDialog", false);
+      }
+    },
+    generateFakeData() {
+      const gender = ["M", "W"];
+      const maleCategories = [
+        "M10",
+        "M12",
+        "M14",
+        "M16",
+        "M20",
+        "M21",
+        "M35",
+        "M40",
+        "M45",
+        "M55",
+        "M65"
+      ];
+      const femaleCategories = [
+        "W10",
+        "W12",
+        "W14",
+        "W16",
+        "W20",
+        "W21",
+        "W35",
+        "W40",
+        "W45",
+        "W55",
+        "W65"
+      ];
+      const firstMaleNames = [
+        "Jacob",
+        "Michael",
+        "Matthew",
+        "Joshua",
+        "Christopher",
+        "Nicholas",
+        "Andrew",
+        "Joseph",
+        "Daniel",
+        "Tyler",
+        "William",
+        "Brandon",
+        "Ryan",
+        "John",
+        "Zachary",
+        "David",
+        "Anthony",
+        "James",
+        "Justin",
+        "Alexander",
+        "Jonathan",
+        "Christian",
+        "Austin",
+        "Max",
+        "Andres",
+        "Gage",
+        "Braden",
+        "Damian",
+        "Donovan",
+        "Ruben",
+        "Frank",
+        "Pedro",
+        "Gerardo",
+        "Andy",
+        "Chance",
+        "Abraham",
+        "Calvin",
+        "Donald",
+        "Derrick",
+        "Payton",
+        "Darius",
+        "Enrique",
+        "Keith",
+        "Raul",
+        "Jaylen",
+        "Troy",
+        "Jonathon",
+        "Roman",
+        "Russell",
+        "Ramon",
+        "Lawrence",
+        "Moises",
+        "Aiden",
+        "Quentin",
+        "Tyrese",
+        "Jay",
+        "Tristen",
+        "Emanuel",
+        "Salvador",
+        "Terry",
+        "Morgan",
+        "Jeffery",
+        "Esteban",
+        "Tyson",
+        "Braxton",
+        "Branden",
+        "Brody",
+        "Craig"
+      ];
+      const firstFemaleNames = [
+        "Emily",
+        "Hannah",
+        "Madison",
+        "Ashley",
+        "Sarah",
+        "Alexis",
+        "Samantha",
+        "Jessica",
+        "Elizabeth",
+        "Taylor",
+        "Lauren",
+        "Audrey",
+        "Noelle",
+        "Carla",
+        "Francesca",
+        "Tia",
+        "Layla",
+        "Krista",
+        "Zoey",
+        "Carley",
+        "Janet",
+        "Carissa",
+        "Iris",
+        "Kaleigh",
+        "Carlie",
+        "Angie",
+        "Nora",
+        "Kailee",
+        "Sylvia",
+        "Carrie",
+        "Elaina",
+        "Sonia",
+        "Genevieve",
+        "Kenya",
+        "Piper",
+        "Marilyn",
+        "Amari",
+        "Macey",
+        "Marlene",
+        "Barbara",
+        "Neha",
+        "Beatrice",
+        "Blair",
+        "Kori",
+        "Luisa",
+        "Annamarie",
+        "Breonna"
+      ];
+      const lastNames = [
+        "Anderson",
+        "Andrews",
+        "Anthony",
+        "Armstrong",
+        "Arnold",
+        "Ashley",
+        "Atkins",
+        "Barber",
+        "Barker",
+        "Barlow",
+        "Barnes",
+        "Barnett",
+        "Bowers",
+        "Bowman",
+        "Boyd",
+        "Boyer",
+        "Boyle",
+        "Bradford",
+        "Bruce",
+        "Bryan",
+        "Bryant",
+        "Buchanan",
+        "Buck",
+        "Buckley",
+        "Burris",
+        "Burt",
+        "Burton",
+        "Bush",
+        "Butler",
+        "Byers",
+        "Byrd",
+        "Cabrera",
+        "Cain",
+        "Calderon",
+        "Caldwell",
+        "Chapman",
+        "Charles",
+        "Chase",
+        "Chavez",
+        "Chen",
+        "Cline",
+        "Cooley",
+        "Cooper",
+        "Copeland",
+        "Cortez",
+        "Cote",
+        "Cotton",
+        "Cox",
+        "Craft",
+        "Craig",
+        "Crane",
+        "Crawford",
+        "Crosby",
+        "Cross",
+        "Cruz",
+        "Diaz",
+        "Dickerson",
+        "Dickson",
+        "Dillard",
+        "Dillon",
+        "Dixon",
+        "Dodson",
+        "Dominguez",
+        "Erickson",
+        "Espinoza",
+        "Estes",
+        "Estrada",
+        "Evans",
+        "Everett",
+        "Ewing",
+        "Farley",
+        "Farmer",
+        "Farrell",
+        "Faulkner",
+        "Ferguson",
+        "Fernandez",
+        "Ferrell",
+        "Franks",
+        "Frazier",
+        "Frederick",
+        "Guerrero",
+        "Guthrie",
+        "Gutierrez",
+        "Guy",
+        "Guzman",
+        "Hahn",
+        "Hale",
+        "Haley",
+        "Hall",
+        "Hamilton",
+        "Hammond",
+        "Hampton",
+        "Hancock",
+        "Haney",
+        "Hansen",
+        "Hanson",
+        "Hardin",
+        "Harding",
+        "Heath",
+        "Hebert",
+        "Henderson",
+        "Hendricks",
+        "Hendrix",
+        "Henry",
+        "Hensley",
+        "Henson",
+        "Holman",
+        "Holmes",
+        "Holt",
+        "Hood",
+        "Hooper",
+        "Hoover",
+        "Johnston",
+        "Kidd",
+        "Kim",
+        "King",
+        "Kinney",
+        "Kirby",
+        "Kirk",
+        "Leblanc",
+        "Lee",
+        "Leon",
+        "Leonard",
+        "Lester",
+        "Levine",
+        "Levy",
+        "Lewis",
+        "Lindsay",
+        "Lindsey",
+        "Little",
+        "Mann",
+        "Manning",
+        "Marks",
+        "Marquez",
+        "Marsh",
+        "Mccullough",
+        "Mcdaniel",
+        "Mcdonald",
+        "Mcdowell",
+        "Mcfadden",
+        "Mcfarland",
+        "Mcgee",
+        "Mcgowan",
+        "Mcguire",
+        "Mcintosh",
+        "Meyers",
+        "Michael",
+        "Middleton",
+        "Miles",
+        "Miller",
+        "Mills",
+        "Mullen",
+        "Mullins",
+        "Munoz",
+        "Murphy",
+        "Ochoa",
+        "Oconnor",
+        "Park",
+        "Parker",
+        "Parks",
+        "Peck",
+        "Pena",
+        "Pennington",
+        "Perez",
+        "Roberson",
+        "Roberts",
+        "Robertson",
+        "Robinson",
+        "Robles",
+        "Rocha",
+        "Rodgers",
+        "Rodriguez",
+        "Rodriquez",
+        "Sanford",
+        "Santana",
+        "Sexton",
+        "Shaffer",
+        "Shannon",
+        "Sharp",
+        "Sharpe",
+        "Shaw",
+        "Shelton",
+        "Shepard",
+        "Shepherd",
+        "Sheppard",
+        "Sherman",
+        "Shields",
+        "Snow",
+        "Snyder",
+        "Solis",
+        "Sullivan",
+        "Summers",
+        "Sutton",
+        "Swanson",
+        "Sweeney",
+        "Sweet",
+        "Sykes",
+        "Torres",
+        "Townsend",
+        "Valentine",
+        "Valenzuela",
+        "Vance",
+        "Vang",
+        "Vargas",
+        "Vasquez",
+        "Vaughan",
+        "Walter",
+        "Walters",
+        "Walton",
+        "Ward",
+        "Wilkinson",
+        "William",
+        "Williams",
+        "Yang",
+        "Yates"
+      ];
+      const clubs = [
+        "Linköpings AIK",
+        "IFK Göteborg",
+        "IF Hallby",
+        "Kristiansand OK",
+        "Halden SK",
+        "IL Tyrving",
+        "Nordstrand IF",
+        "OLG Thalwil",
+        "OLK Argus",
+        "LKS Gorzanka Nawojowa Gora",
+        "OLC Winterthur"
+      ];
+      const stagesOptions = [
+        ["E1"],
+        ["E2"],
+        ["E3"],
+        ["E1", "E2"],
+        ["E2", "E3"],
+        ["E1", "E2", "E3"],
+        ["E1", "E2", "E3"],
+        ["E1", "E2", "E3"],
+        ["E1", "E2", "E3"],
+        ["E1", "E2", "E3"]
+      ];
+      for (let i = 0; i < 350; i++) {
+        // Fake data generator
+
+        this.editedRunner = {
+          name: "",
+          club: "",
+          si: "",
+          category: "",
+          stages: ["E1", "E2", "E3"],
+          nights: 2,
+          fee: 0
+        };
+
+        let runnerGender = gender[Math.floor(Math.random() * gender.length)];
+        let namesArray;
+        runnerGender === "M"
+          ? (namesArray = firstMaleNames)
+          : (namesArray = firstFemaleNames);
+
+        let randomFirstName =
+          namesArray[Math.floor(Math.random() * namesArray.length)];
+        let randomLastName =
+          lastNames[Math.floor(Math.random() * lastNames.length)];
+
+        this.editedRunner.name = randomFirstName + " " + randomLastName;
+
+        let categoriesArray;
+        runnerGender === "M"
+          ? (categoriesArray = maleCategories)
+          : (categoriesArray = femaleCategories);
+
+        this.editedRunner.category =
+          categoriesArray[Math.floor(Math.random() * categoriesArray.length)];
+        this.editedRunner.club =
+          clubs[Math.floor(Math.random() * clubs.length)];
+        this.editedRunner.stages =
+          stagesOptions[Math.floor(Math.random() * stagesOptions.length)];
+
+        const numberOfNights = () => {
+          if (this.editedRunner.stages.length === 3) return 2;
+          else if (this.editedRunner.stages.length === 2) return 1;
+          else return 0;
+        };
+
+        this.editedRunner.nights = numberOfNights();
+
+        const siBorrowChance = [1, 0, 0, 0, 0, 0, 0, 0];
+        const getSiNumber = (borrow) => {
+          return borrow ? '' : Math.floor(Math.random() * 8888888) + 1;
+        }
+
+        let borrowSi = 
+          siBorrowChance[Math.floor(Math.random() * siBorrowChance.length)];
+
+        this.editedRunner.si = getSiNumber(borrowSi);
+        this.calculateFee();
+
+        this.$store.commit("addEntry", this.editedRunner);
       }
     }
   }
