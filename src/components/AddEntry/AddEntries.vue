@@ -143,6 +143,7 @@ export default {
     initialize() {
       this.newEntries = this.$store.state.newEntries;
     },
+
     stagesWithoutBrackets(stages) {
       stages = stages.join(" ");
       return stages.replace(/[[\]]/g, "");

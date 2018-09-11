@@ -117,7 +117,7 @@ export default {
   position:relative; margin:0 auto;
 } */
 .main-content {
-  max-width: 800px;
+  max-width: 1000px;
 }
 .invitation h2 {
   margin-top: 1.2rem;
