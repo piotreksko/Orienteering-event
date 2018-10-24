@@ -27,7 +27,7 @@
         </v-data-table>
       </div>
       <div v-if="showBy.clubs" v-for="club in uniqueClubs" :key="club" class="mb-5 pb-5">
-        <h2>{{ club }} - Entries in this club: {{ entriesByClub(club).length }}</h2>
+        <h2>{{ club }} - Entries in this club: {{ entriesByClub(club).length }}  - total fee: {{ clubFee(club) }}€</h2>
         <v-data-table :headers="headers" :items="entriesByClub(club)" hide-actions class="elevation-1 data-table">
           <template slot="items" slot-scope="props">
             <td>{{ props.item.name }}</td>
@@ -102,6 +102,8 @@ export default {
     isLoading: true,
     uniqueCategories: [],
     uniqueClubs: [],
+    categories: [],
+    clubs: [],
     showBy: {
       categories: false,
       clubs: false
@@ -156,10 +158,10 @@ export default {
       return stages.replace(/[[\]]/g, "");
     },
     entriesByCategory(category) {
-      return this[category];
+      return this.categories[category];
     },
     entriesByClub(club) {
-      return this[club];
+      return this.clubs[club];
     },
     editItem(runner) {
       this.$store.commit("changeEditedIndex", this.runners.indexOf(runner));
@@ -189,10 +191,10 @@ export default {
         ];
         this.uniqueClubs.sort();
         this.uniqueClubs.forEach(club => {
-          this[club] = [];
+          this.clubs[club] = [];
         });
         this.entries.map(entry => {
-          this[entry.club].push(entry);
+          this.clubs[entry.club].push(entry);
         });
       }
       this.showBy.categories = false;
@@ -205,14 +207,17 @@ export default {
         ];
         this.uniqueCategories.sort();
         this.uniqueCategories.forEach(category => {
-          this[category] = [];
+          this.categories[category] = [];
         });
         this.entries.map(entry => {
-          this[entry.category].push(entry);
+          this.categories[entry.category].push(entry);
         });
       }
       this.showBy.categories = true;
       this.showBy.clubs = false;
+    },
+    clubFee(club) {
+      return this.clubs[club].reduce((a, b) => a + b.fee, 0 )
     }
   }
 };
