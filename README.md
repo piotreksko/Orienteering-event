@@ -9,22 +9,17 @@ The goal is to create a website that will include all information about the even
 Some additional features will be included such as chat or interactive map that will let the user add a mark on the map and inform other competitors that he has free space in his car and is willing to take other competitors to the event from his area (kind of blablacar).
 
 # Subpages
-## Fully finished
-- Adding new entries - dynamically updates fee of the current entry based on chosen options
-- Chat
+## Finished
 
-## Partially finished
-
-- Homepage
-- Invitation
-- Entries - shows submitted entries - does not sort by club or category yet
+- Homepage (landing page with countdown)
+- Invitation (basic info about the event)
+- Entries - shows submitted entries - options to see by categories or clubs
+- Adding new entries - dynamically updates fee of the current entry based on chosen options - with generateFakeData function in the code
+- Chat - chat with other runners about the event
 
 ## To be done
 
-- Populate entries
-- Getting here (blablacar module)
-
-
+- Getting here
 
 ## Build Setup
 
